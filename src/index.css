@@ -28,7 +28,7 @@ span.icon {
   margin-left:36px;
 }
 
-.list > .list {
+.list .list {
   border-left: 1px dashed #CAD1D5;
 }
 
