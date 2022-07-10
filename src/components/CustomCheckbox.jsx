@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import data from '../data/data.js'
-// import Checkbox from './Checkbox.jsx'
 
-const isVisited = []; //nodes which are already visited
 
 function CustomCheckbox({ parentId }) {
   const [checkboxState, setcheckboxState] = useState(data.reduce((c, v) => {
