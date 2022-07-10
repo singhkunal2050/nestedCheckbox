@@ -6,7 +6,7 @@
 - overflow text overflow on next line with height adjustment   
 - emit necessary events on Checkbox State Change 
 
-```
+```js
      // Firing Custom Event on Change
     const customChangeEvent = new Event('customChange');
     e.target.dispatchEvent(customChangeEvent);
