@@ -6,14 +6,13 @@ function CustomCheckbox({ parentId }) {
   const [checkboxState, setcheckboxState] = useState(data)
   const [expanded , setexpanded] = useState(true);
 
-  const handleClick = (e) => {
+  const handleToggle = (e) => {
     console.log(e)
     setexpanded(!expanded)
   }
 
   const hasChildren = (name) =>{
     let results = checkboxState.filter(elem=>elem.parentId==name)
-    console.log(results.length > 0)
     return results.length > 0
   }
 
@@ -31,7 +30,8 @@ function CustomCheckbox({ parentId }) {
     <>
       {idToRender.map(elem => {
         return <div className="list" key={elem.name }>
-          <input type="checkbox" checked={false} onChange={handleClick} className={expanded && 'expanded' }  data-has-child={ hasChildren(elem.name)} /> {elem.name}
+          <span className='icon' onClick={handleToggle} data-has-child={ hasChildren(elem.name)}>{expanded ? "-" : "+"}</span>
+          <input type="checkbox" checked={false} onChange={()=>{}} className={expanded ? 'expanded' : '' }   /> {elem.name}
           {expanded && getChildren(elem.name)}
         </div>
         // return <Checkbox  />
