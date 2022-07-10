@@ -40,7 +40,7 @@ function CustomCheckbox({ parentId }) {
 
   const getChildren = (name) => {
     let children = data.filter(elem => elem.parentId == name)
-    return children.map(elem => <CustomCheckbox parentId={elem.parentId} />)
+    return children.map(elem => <CustomCheckbox key={elem.name} parentId={elem.parentId} />)
   }
 
   const idToRender = data.filter(elem => elem.parentId == parentId);
