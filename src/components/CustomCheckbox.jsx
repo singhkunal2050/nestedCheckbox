@@ -27,7 +27,7 @@ function CustomCheckbox({ parentId }) {
   const handlecheckToggle = (e) => {
     let current = e.target.value
     const parentOfCurrentChild = checkboxState[current].data.parentId
-    console.log({ parentOfCurrentChild })
+    // console.log({ parentOfCurrentChild })
 
     if (parentOfCurrentChild == null) {
       console.log('no parent')
