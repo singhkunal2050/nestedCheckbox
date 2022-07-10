@@ -3,8 +3,12 @@ import data from '../data/data.js'
 // import Checkbox from './Checkbox.jsx'
 
 function CustomCheckbox({ parentId }) {
-  const [checkboxState, setcheckboxState] = useState(data)
+  // const [checkboxState, setcheckboxState] = useState(data)
   const [expanded, setexpanded] = useState([]);
+
+  // let CheckBoxStateObj = {};
+  // data.forEach(elem=> CheckBoxStateObj[elem.name]={ checked : false , intermediate : false , expanded : false }  )
+  
 
   const handleToggle = (e) => {
     let current = e.target.dataset.name
@@ -18,12 +22,12 @@ function CustomCheckbox({ parentId }) {
   }
 
   const hasChildren = (name) => {
-    let results = checkboxState.filter(elem => elem.parentId == name)
+    let results = data.filter(elem => elem.parentId == name)
     return results.length > 0
   }
 
   const getChildren = (name) => {
-    let children = checkboxState.filter(elem => elem.parentId == name)
+    let children = data.filter(elem => elem.parentId == name)
     return children.map(elem => <CustomCheckbox parentId={elem.parentId} />)
   }
 
