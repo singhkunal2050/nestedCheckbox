@@ -8,11 +8,16 @@ function CustomCheckbox({ parentId }) {
   const [checkboxState, setcheckboxState] = useState(data)
   const [expanded, setexpanded] = useState([]);
   const [checked, setchecked] = useState([])
-
-  // let CheckBoxStateObj = {};
-  // data.forEach(elem=> CheckBoxStateObj[elem.name]={ checked : false , intermediate : false , expanded : false }  )
-  // setcheckboxState(CheckBoxStateObj)
-  // console.log(CheckBoxStateObj)
+  const [intermediate, setintermediate] = useState([])
+  
+  // const result = data.reduce((c, v) => {
+  //   c[v.name] = c[v.name] || [];       //Initiate if key does not exist
+  //   c[v.name].data = v ;                //Push the value
+  //   c[v.name].intermediate = false;
+  //   c[v.name].checked = false; 
+  //     return c;
+  // }, {});
+  // console.log(result);
 
   const handleToggle = (e) => {
     let current = e.target.closest('.icon').dataset.name
@@ -22,6 +27,8 @@ function CustomCheckbox({ parentId }) {
     } else {
       setexpanded([...expanded, current])
     }
+    // working with intermediate logic
+
   }
 
 
@@ -32,6 +39,9 @@ function CustomCheckbox({ parentId }) {
     } else {
       setchecked([...checked, current])
     }
+    // Firing Custom Event on Change
+    const customChangeEvent = new Event('customChange');
+    e.target.dispatchEvent(customChangeEvent);
   }
 
   const hasChildren = (name) => {
@@ -48,15 +58,9 @@ function CustomCheckbox({ parentId }) {
       return <CustomCheckbox key={name} parentId={name} />
     }
 
-  const idToRender = data.filter(elem => elem.parentId == parentId);
-  console.log({idToRender , t:Math.random()})
-  // let obj = {};
-  // idToRender.forEach((e) => obj[e] = { checked: false, intermediate: false })
-  // console.log({ data, idToRender, m: Math.random() })
-
   return (
     <>
-      {idToRender.map(elem => {
+      {data.filter(elem => elem.parentId == parentId).map(elem => {
         return <div className="list" key={elem.name}>
           <div className="parent">
             <span className='icon' data-name={elem.name} onClick={handleToggle} data-has-child={hasChildren(elem.name)}>{expanded.includes(elem.name) ? <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +72,7 @@ function CustomCheckbox({ parentId }) {
               </svg>
             }</span>
             <label htmlFor={elem.name}>
-              <input type="checkbox" id={elem.name} value={elem.name} checked={checked.includes(elem.name)} onChange={handlecheckToggle} className={expanded.includes(elem.name) ? 'expanded' : ''} /> 
+              <input type="checkbox" id={elem.name} value={elem.name} checked={checked.includes(elem.name)} onChange={handlecheckToggle} className={expanded.includes(elem.name) ? 'expanded' : ''} data-intermediate={ Math.random() > 0.5} /> 
               <span className="input-title" data-bold-title={hasChildren(elem.name) ? true : false } >{elem.name}</span>
             </label>
           </div>

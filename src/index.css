@@ -92,3 +92,8 @@ input[type="checkbox"] {
  input[type="checkbox"]:checked::before {
   transform: scale(1) !important;
 }
+
+
+input[data-intermediate="true"]::before {
+  box-shadow: inset 1em 1em #ff9901;
+}

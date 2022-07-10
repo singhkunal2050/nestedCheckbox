@@ -37,19 +37,22 @@ const data = [
         parentId: "0-1",
     },
     // extra
-    , {
-        name: "donut",
-        parentId: "0-0-2",
-    }, {
-        name: "pwwny",
-        parentId: "0-0-2",
-    }, {
-        name: "kom",
-        parentId: "0-0-1",
-    }, {
-        name: "damoooooo",
-        parentId: "0-0-0",
-    }
+    // , {
+    //     name: "donut",
+    //     parentId: "0-0-2",
+    // }, {
+    //     name: "pwwny",
+    //     parentId: "0-0-2",
+    // }, {
+    //     name: "kom",
+    //     parentId: "0-0-1",
+    // }, {
+    //     name: "damoooooo",
+    //     parentId: "0-0-0",
+    // }, {
+    //     name: "damoooooo-2",
+    //     parentId: "damoooooo",
+    // }
 ];
 
 console.log(data)
