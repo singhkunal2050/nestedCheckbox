@@ -22,6 +22,8 @@
     box-shadow: 10px 10px 10px #00000017;
     max-width: 80vw;
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -110,5 +112,10 @@ input[type="checkbox"] {
 } */
 
 .heading{
+  text-align: center;
+}
+
+footer{
+  margin-top: auto;
   text-align: center;
 }
