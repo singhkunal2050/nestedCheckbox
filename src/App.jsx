@@ -6,7 +6,9 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <CustomCheckbox parentId={null} />
+    <div className='app'>
+      <CustomCheckbox parentId={null} />
+    </div>
   )
 }
 

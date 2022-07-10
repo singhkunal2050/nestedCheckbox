@@ -14,6 +14,15 @@
   transition: 900ms ease-in-out;
 } */
 
+.app{
+    background: white;
+    padding: 20px;
+    min-height: 70vh;
+    border: 2px solid #efefef;
+    box-shadow: 10px 10px 10px #00000017;
+}
+
+
 span.icon {
   width: 14px;
   height: 14px;
@@ -94,6 +103,6 @@ input[type="checkbox"] {
 }
 
 
-input[data-intermediate="true"]::before {
+/* input[data-intermediate="true"]::before {
   box-shadow: inset 1em 1em #ff9901;
-}
+} */
