@@ -5,13 +5,14 @@ import data from '../data/data.js'
 const isVisited = []; //nodes which are already visited
 
 function CustomCheckbox({ parentId }) {
-  // const [checkboxState, setcheckboxState] = useState(data)
+  const [checkboxState, setcheckboxState] = useState(data)
   const [expanded, setexpanded] = useState([]);
   const [checked, setchecked] = useState([])
 
   // let CheckBoxStateObj = {};
   // data.forEach(elem=> CheckBoxStateObj[elem.name]={ checked : false , intermediate : false , expanded : false }  )
-
+  // setcheckboxState(CheckBoxStateObj)
+  // console.log(CheckBoxStateObj)
 
   const handleToggle = (e) => {
     let current = e.target.closest('.icon').dataset.name
@@ -39,14 +40,18 @@ function CustomCheckbox({ parentId }) {
   }
 
   const getChildren = (name) => {
-    let children = data.filter(elem => elem.parentId == name)
-    return children.map(elem => <CustomCheckbox key={elem.name} parentId={elem.parentId} />)
-  }
+      // let children = data.filter(elem => elem.parentId == name)
+      // isVisited.push(name)
+      // console.log(isVisited)
+      // if(isVisited.includes(name))
+      // return children.map(elem => <CustomCheckbox key={elem.name} parentId={elem.parentId} />)
+      return <CustomCheckbox key={name} parentId={name} />
+    }
 
   const idToRender = data.filter(elem => elem.parentId == parentId);
-  let obj = {};
-  idToRender.forEach((e) => obj[e] = { checked: false, intermediate: false })
-
+  console.log({idToRender , t:Math.random()})
+  // let obj = {};
+  // idToRender.forEach((e) => obj[e] = { checked: false, intermediate: false })
   // console.log({ data, idToRender, m: Math.random() })
 
   return (
@@ -73,6 +78,8 @@ function CustomCheckbox({ parentId }) {
         </div>
         // return <Checkbox  />
       })}
+
+   
     </>
   )
 }

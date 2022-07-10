@@ -46,6 +46,9 @@ const data = [
     }, {
         name: "kom",
         parentId: "0-0-1",
+    }, {
+        name: "damoooooo",
+        parentId: "0-0-0",
     }
 ];
 
