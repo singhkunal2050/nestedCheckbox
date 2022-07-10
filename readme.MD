@@ -12,7 +12,17 @@
 ```
 
 
-● Follow best practices
+● Lightweight with no addtional Dependency
+
+```js
+
+ "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+
+```
+
 ● Feel free to use any 3rd party libraries, as far as you are mindful about the size it adds to
 the project.
 ● Each node can be nested to N levels
