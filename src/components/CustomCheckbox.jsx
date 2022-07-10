@@ -6,8 +6,8 @@ const isVisited = []; //nodes which are already visited
 
 function CustomCheckbox({ parentId }) {
   const [checkboxState, setcheckboxState] = useState(data.reduce((c, v) => {
-    c[v.name] = c[v.name] || {};       
-    c[v.name].data = v;               
+    c[v.name] = c[v.name] || {};
+    c[v.name].data = v;
     c[v.name].intermediate = false;
     c[v.name].expanded = false;
     c[v.name].checked = false;
@@ -28,30 +28,31 @@ function CustomCheckbox({ parentId }) {
     })
   }
 
-  const handleIntermediateState = (current) =>{
-    const allChildrenofCurrentParent = []; 
-    for(let item in checkboxState){
-        if(checkboxState[item].data.parentId==current){
-            allChildrenofCurrentParent.push(checkboxState[item])
-        }
-    }
-    let allChecked = allChildrenofCurrentParent.every(item=>item.check==true)
-    console.log({allChildrenofCurrentParent , allChecked})
-
-    console.log({ checkboxState })
-  }
-
-
   const handlecheckToggle = (e) => {
     let current = e.target.value
-    setcheckboxState({
-      ...checkboxState,
-      [current]: { ...checkboxState[current], checked: !checkboxState[current].checked }
-    })
+    const parentOfCurrentChild = checkboxState[current].data.parentId
+    // let allChecked = parentOfCurrentChild.every(item => item.check == true)
+    // console.log({ parentOfCurrentChild, allChecked })
+    // console.log({ checkboxState })
+
+    // if (parentId == -1) {
+      setcheckboxState({
+        ...checkboxState,
+        [current]: { ...checkboxState[current], checked: !checkboxState[current].checked }
+      })
+    // } else {
+    //   setcheckboxState({
+    //     ...checkboxState,
+    //     [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
+    //     [parentId]: { ...checkboxState[parentId], intermediate: true }
+    //   })
+    // }
+
+
     // Firing Custom Event on Change
     const customChangeEvent = new Event('customChange');
     e.target.dispatchEvent(customChangeEvent);
-    handleIntermediateState(current);
+    // handleIntermediateState(current);
   }
 
   const hasChildren = (name) => {

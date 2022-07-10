@@ -119,3 +119,7 @@ footer{
   margin-top: auto;
   text-align: center;
 }
+
+p{
+    word-break: break-all;
+}
