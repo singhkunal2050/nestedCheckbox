@@ -1,9 +1,14 @@
-import React from 'react'
+// import React from 'react'
 
-function Checkbox() {
-  return (
-    <div>Checkbox</div>
-  )
-}
+// function Checkbox() {
+//   const [expanded , setexpanded] = useState(true);
 
-export default Checkbox
+//   return (
+//     <div className="list" key={elem.name}>
+//           <input type="checkbox" checked={false} onChange={handleClick} /> {elem.name}
+//           {expanded && getChildren(elem.name)}
+//     </div>
+//   )
+// }
+
+// export default Checkbox

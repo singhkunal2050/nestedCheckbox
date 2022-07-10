@@ -12,8 +12,40 @@ code {
     monospace;
 }
 
+input[type="checkbox"] {
+  position: relative;
+}
 
-li{
+input[type="checkbox"]::before {
+  content: '+';
+  background: #efefef;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: -20px;
+  border: 1px solid grey;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+  color: grey;
+}
+
+input[type="checkbox"].expanded::before{
+  content: '-';
+}
+
+.list{
   list-style: none;
   margin-left: 20px;
+}
+
+
+[data-has-child="false"]::before{
+  display: none;
+}
+
+[data-has-child="false"].expanded::before{
+  display: none;
 }
