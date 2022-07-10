@@ -106,3 +106,7 @@ input[type="checkbox"] {
 /* input[data-intermediate="true"]::before {
   box-shadow: inset 1em 1em #ff9901;
 } */
+
+.heading{
+  text-align: center;
+}
