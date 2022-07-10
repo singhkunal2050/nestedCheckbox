@@ -13,15 +13,11 @@ function CustomCheckbox({ parentId }) {
     c[v.name].checked = false;
     return c;
   }, {}))
-  // const [expanded, setexpanded] = useState([]);
-  // const [checked, setchecked] = useState([])
-  // const [intermediate, setintermediate] = useState([])
 
-  // console.log(checkboxState);
+  console.log(checkboxState);
 
   const handleToggle = (e) => {
     let current = e.target.closest('.icon').dataset.name
-    // console.log(current)
     setcheckboxState({
       ...checkboxState,
       [current]: { ...checkboxState[current], expanded: !checkboxState[current].expanded }
@@ -31,22 +27,21 @@ function CustomCheckbox({ parentId }) {
   const handlecheckToggle = (e) => {
     let current = e.target.value
     const parentOfCurrentChild = checkboxState[current].data.parentId
-    // let allChecked = parentOfCurrentChild.every(item => item.check == true)
-    // console.log({ parentOfCurrentChild, allChecked })
-    // console.log({ checkboxState })
+    console.log({ parentOfCurrentChild })
 
-    // if (parentId == -1) {
+    if (parentOfCurrentChild == null) {
+      console.log('no parent')
       setcheckboxState({
         ...checkboxState,
         [current]: { ...checkboxState[current], checked: !checkboxState[current].checked }
       })
-    // } else {
-    //   setcheckboxState({
-    //     ...checkboxState,
-    //     [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
-    //     [parentId]: { ...checkboxState[parentId], intermediate: true }
-    //   })
-    // }
+    } else {
+      setcheckboxState({
+        ...checkboxState,
+        [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
+        [parentOfCurrentChild]: { ...checkboxState[parentOfCurrentChild], intermediate: true }
+      })
+    }
 
 
     // Firing Custom Event on Change
