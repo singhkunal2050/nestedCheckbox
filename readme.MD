@@ -48,5 +48,5 @@ the project.
 -  Checkbox to have intermediate state
 - Style Isolation
 - (Bonus) small documentation in any form
-
+- Memoize for rendering optimization
 
