@@ -35,6 +35,17 @@ const data = [
     }, {
         name: "0-1-0",
         parentId: "0-1",
+    },
+    // extra
+    , {
+        name: "donut",
+        parentId: "0-0-2",
+    }, {
+        name: "pwwny",
+        parentId: "0-0-2",
+    }, {
+        name: "kom",
+        parentId: "0-0-1",
     }
 ];
 
