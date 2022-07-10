@@ -44,5 +44,6 @@ span {
 } */
 
 [data-has-child="false"]{
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
