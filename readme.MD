@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fb428de5-5c36-45b8-8db2-48de813e4614/deploy-status)](https://app.netlify.com/sites/customnestedcheckbox/deploys)
 # Nested Checkbox Component 
 [![Nested Checkbox](/docs/demo-snap.gif)](https://customnestedcheckbox.netlify.app/)
 
