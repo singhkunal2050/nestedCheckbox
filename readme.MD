@@ -1,4 +1,6 @@
 # Nested Checkbox Component 
+[![Nested Checkbox](/docs/demo-snap.gif)](https://customnestedcheckbox.netlify.app/)
+
 
 - each node can be nested to N Level 
 - overflow text overflow on next line with height adjustment   
