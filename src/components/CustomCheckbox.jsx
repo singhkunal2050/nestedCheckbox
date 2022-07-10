@@ -30,7 +30,6 @@ function CustomCheckbox({ parentId }) {
     // console.log({ parentOfCurrentChild })
 
     if (parentOfCurrentChild == null) {
-      console.log('no parent')
       setcheckboxState({
         ...checkboxState,
         [current]: { ...checkboxState[current], checked: !checkboxState[current].checked }
