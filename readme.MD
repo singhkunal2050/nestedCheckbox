@@ -3,7 +3,7 @@
 [![Nested Checkbox](/docs/demo-snap.gif)](https://customnestedcheckbox.netlify.app/)
 
 
-● Component should act like a traditional form input element
+- Component should act like a traditional form input element
 ```html 
 
 <!-- Using HTML Labels with htmlFor for targeting inputs from text -->
@@ -13,7 +13,7 @@
 ```
 
 
-● Lightweight with no addtional Dependency
+- Lightweight with no addtional Dependency
 
 ```js
 
@@ -24,18 +24,9 @@
 
 ```
 
-● Feel free to use any 3rd party libraries, as far as you are mindful about the size it adds to
-the project.
-● Each node can be nested to N levels
-● Overflowing text wraps to next line adjusting the height
-● Should emit necessary events
-● Style Isolation
-● Submission in the form of github repo, with example integrated.
-● Checkbox to have intermediate state
-● (Bonus) additional features
-● (Bonus) small documentation in any form
-  
-- emit necessary events on Checkbox State Change 
+- Each node can be nested to N levels
+
+- emits necessary events
 
 ```js
      // Firing Custom Event on Change
@@ -46,8 +37,13 @@ the project.
 
 
 
--  Checkbox to have intermediate state
-- Style Isolation
-- (Bonus) small documentation in any form
+- Checkbox with intermediate state
+```css
+
+input[data-intermediate="true"]::before {
+  box-shadow: inset 1em 1em #ff9901;
+}
+
+```
 - Memoize for rendering optimization
 
