@@ -20,6 +20,8 @@
     min-height: 70vh;
     border: 2px solid #efefef;
     box-shadow: 10px 10px 10px #00000017;
+    max-width: 80vw;
+    margin: 20px auto;
 }
 
 
