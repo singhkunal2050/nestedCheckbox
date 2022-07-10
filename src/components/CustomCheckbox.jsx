@@ -17,7 +17,7 @@ function CustomCheckbox({ parentId }) {
   // const [checked, setchecked] = useState([])
   // const [intermediate, setintermediate] = useState([])
 
-  console.log(checkboxState);
+  // console.log(checkboxState);
 
   const handleToggle = (e) => {
     let current = e.target.closest('.icon').dataset.name
