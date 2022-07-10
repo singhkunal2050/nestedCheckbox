@@ -7,11 +7,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+/* debugger */
+/* *{
+  border: 1px dotted lime ;
+  background: black !important;
+  transition: 900ms ease-in-out;
+} */
 
 span.icon {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +30,7 @@ span.icon {
 
 .list{
   list-style: none;
-  margin-left:36px;
+  margin-left:40px;
 }
 
 .list .list {
@@ -37,9 +42,24 @@ span.icon {
   pointer-events: none;
 } 
 
+[data-bold-title="true"]{
+  font-weight: bold;
+}
+
 .icon svg{
   transform: scale(.5);
   transform-origin: center;
+}
+
+.parent{
+  display: flex;
+  align-items: center;
+}
+
+.input-title{
+  margin-left: 10px;
+  align-self: center;
+  margin-bottom: 3px;
 }
 
 /* custom checkbox */
