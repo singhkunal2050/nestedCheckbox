@@ -1,4 +1,4 @@
-body {
+ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,48 +7,68 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
-/* input[type="checkbox"] {
-  position: relative;
-} */
 
 span.icon {
-  background: #efefef;
-  width: 12px;
-  height: 12px;
-  border: 1px solid grey;
-  border-radius: 50%;
+  width: 10px;
+  height: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   font-size: 0.6rem;
   color: grey;
   margin-left: 5px;
+  background: #FFFFFF;
+  border: 1px solid #CAD1D5;
+  border-radius: 26px;
 }
-
-/* input[type="checkbox"].expanded::before{
-  content: '-';
-} */
 
 .list{
   list-style: none;
-  margin-left:29px;
+  margin-left:36px;
 }
 
 .list > .list {
-  border-left: 1px solid gray;
+  border-left: 1px dashed #CAD1D5;
 }
-
-/* 
-[data-has-child="false"].expanded::before{
-  display: none;
-} */
 
 [data-has-child="false"]{
   opacity: 0;
   pointer-events: none;
+} 
+
+.icon svg{
+  transform: scale(.5);
+  transform-origin: center;
+}
+
+/* custom checkbox */
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #CAD1D5;
+  border-radius: 4px;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  transform: translateY(-0.075em);
+  display: inline-grid;
+  place-content: center;
+  margin-left: 10px;
+}
+ input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  border-radius: 26px;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #41C3A9;
+}
+ input[type="checkbox"]:checked::before {
+  transform: scale(1) !important;
 }
