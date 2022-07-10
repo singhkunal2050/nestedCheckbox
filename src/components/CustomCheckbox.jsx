@@ -14,7 +14,6 @@ function CustomCheckbox({ parentId }) {
     let current = e.target.dataset.name
     console.log(current)
     if(expanded.includes(current)){
-      console.log('gotit')
       setexpanded([...expanded.filter(elem=>elem!=current)])
     }else{
        setexpanded([...expanded , current])

@@ -16,7 +16,7 @@ code {
   position: relative;
 } */
 
-span {
+span.icon {
   background: #efefef;
   width: 12px;
   height: 12px;
@@ -27,6 +27,7 @@ span {
   align-items: center;
   font-size: 0.6rem;
   color: grey;
+  margin-left: 5px;
 }
 
 /* input[type="checkbox"].expanded::before{
@@ -35,7 +36,11 @@ span {
 
 .list{
   list-style: none;
-  margin-left: 20px;
+  margin-left:29px;
+}
+
+.list > .list {
+  border-left: 1px solid gray;
 }
 
 /* 
