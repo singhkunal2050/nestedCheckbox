@@ -1,7 +1,7 @@
-import React, { useState  } from 'react'
+import React, { useState } from 'react'
 
 
-function CustomCheckbox({ data,  checkboxState , setcheckboxState , parentId }) {
+function CustomCheckbox({ data, checkboxState, setcheckboxState, parentId }) {
 
   const handleToggle = (e) => {
     let current = e.target.closest('.icon').dataset.name
@@ -14,22 +14,41 @@ function CustomCheckbox({ data,  checkboxState , setcheckboxState , parentId }) 
   const handlecheckToggle = (e) => {
     let current = e.target.value
     const parentOfCurrentChild = checkboxState[current].data.parentId
+    const allChildrenofCurrentParent = [];
+    for (let item in checkboxState) {
+      if (checkboxState[item].data.parentId == parentOfCurrentChild) {
+        allChildrenofCurrentParent.push(checkboxState[item])
+      }
+    }
+    let allChecked = allChildrenofCurrentParent.every(item => item.checked)
+
     console.log({ parentOfCurrentChild })
     if (parentOfCurrentChild == null) {
       setcheckboxState({
         ...checkboxState,
         [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
-        [parentOfCurrentChild]: { ...checkboxState[parentOfCurrentChild], intermediate: false }
       })
-    } else {
-      setcheckboxState({
-        ...checkboxState,
-        [current]: { ...checkboxState[current], checked: !checkboxState[current].checked  },
-        [parentOfCurrentChild]: { ...checkboxState[parentOfCurrentChild], intermediate: true }
-      })
-      console.log({ checkboxState })
+    }
+    else {
+
+      if (allChecked) {
+        setcheckboxState({
+          ...checkboxState,
+          [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
+          [parentOfCurrentChild]: { ...checkboxState[parentOfCurrentChild], intermediate: false }
+        })
+      }
+      else {
+        setcheckboxState({
+          ...checkboxState,
+          [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
+          [parentOfCurrentChild]: { ...checkboxState[parentOfCurrentChild], intermediate: true }
+        })
+      }
+
     }
 
+    console.log(checkboxState)
 
     // Firing Custom Event on Change
     const customChangeEvent = new Event('customChange');
@@ -64,7 +83,7 @@ function CustomCheckbox({ data,  checkboxState , setcheckboxState , parentId }) 
               <span className="input-title" data-bold-title={hasChildren(elem.name) ? true : false} >{elem.name}</span>
             </label>
           </div>
-          <div className="children"  style={{ display: checkboxState[elem.name].expanded ? "block" : "none" }} >
+          <div className="children" style={{ display: checkboxState[elem.name].expanded ? "block" : "none" }} >
             {getChildren(elem.name)}
           </div>
         </div>
