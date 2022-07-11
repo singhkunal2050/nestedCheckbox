@@ -70,7 +70,6 @@ function CustomCheckbox({ parentId }) {
               </svg>
             }</span>
             <label htmlFor={elem.name}>
-              {checkboxState[elem.name].intermediate ? 'true' : 'false'} 
               <input type="checkbox" id={elem.name} value={elem.name} checked={checkboxState[elem.name].checked} onChange={handlecheckToggle} className={checkboxState[elem.name].expanded ? 'expanded' : ''} data-intermediate={checkboxState[elem.name].intermediate} />
               <span className="input-title" data-bold-title={hasChildren(elem.name) ? true : false} >{elem.name}</span>
             </label>
