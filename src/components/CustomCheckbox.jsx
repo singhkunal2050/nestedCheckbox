@@ -25,8 +25,7 @@ function CustomCheckbox({ parentId }) {
   const handlecheckToggle = (e) => {
     let current = e.target.value
     const parentOfCurrentChild = checkboxState[current].data.parentId
-    // console.log({ parentOfCurrentChild })
-
+    console.log({ parentOfCurrentChild })
     if (parentOfCurrentChild == null) {
       setcheckboxState({
         ...checkboxState,
@@ -35,9 +34,10 @@ function CustomCheckbox({ parentId }) {
     } else {
       setcheckboxState({
         ...checkboxState,
-        [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
+        [current]: { ...checkboxState[current], checked: !checkboxState[current].checked  },
         [parentOfCurrentChild]: { ...checkboxState[parentOfCurrentChild], intermediate: true }
       })
+      console.log({ checkboxState })
     }
 
 
@@ -70,6 +70,7 @@ function CustomCheckbox({ parentId }) {
               </svg>
             }</span>
             <label htmlFor={elem.name}>
+              {checkboxState[elem.name].intermediate ? 'true' : 'false'} 
               <input type="checkbox" id={elem.name} value={elem.name} checked={checkboxState[elem.name].checked} onChange={handlecheckToggle} className={checkboxState[elem.name].expanded ? 'expanded' : ''} data-intermediate={checkboxState[elem.name].intermediate} />
               <span className="input-title" data-bold-title={hasChildren(elem.name) ? true : false} >{elem.name}</span>
             </label>

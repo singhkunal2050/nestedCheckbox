@@ -111,6 +111,10 @@ input[data-intermediate="true"]::before {
   box-shadow: inset 1em 1em #ff9901;
 }
 
+input[data-intermediate="true"]{
+  background-color: rgba(102, 51, 153, 0.205);
+}
+
 .heading{
   text-align: center;
 }
