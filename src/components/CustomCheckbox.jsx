@@ -1,18 +1,7 @@
 import React, { useState  } from 'react'
-import data from '../data/data.js'
 
 
-function CustomCheckbox({ parentId }) {
-  const [checkboxState, setcheckboxState] = useState(data.reduce((c, v) => {
-    c[v.name] = c[v.name] || {};
-    c[v.name].data = v;
-    c[v.name].intermediate = false;
-    c[v.name].expanded = false;
-    c[v.name].checked = false;
-    return c;
-  }, {}))
-
-  // console.log(checkboxState);
+function CustomCheckbox({ data,  checkboxState , setcheckboxState , parentId }) {
 
   const handleToggle = (e) => {
     let current = e.target.closest('.icon').dataset.name
@@ -29,7 +18,8 @@ function CustomCheckbox({ parentId }) {
     if (parentOfCurrentChild == null) {
       setcheckboxState({
         ...checkboxState,
-        [current]: { ...checkboxState[current], checked: !checkboxState[current].checked }
+        [current]: { ...checkboxState[current], checked: !checkboxState[current].checked },
+        [parentOfCurrentChild]: { ...checkboxState[parentOfCurrentChild], intermediate: false }
       })
     } else {
       setcheckboxState({
@@ -53,7 +43,7 @@ function CustomCheckbox({ parentId }) {
   }
 
   const getChildren = (name) => {
-    return <CustomCheckbox key={name} parentId={name} />
+    return <CustomCheckbox data={data} checkboxState={checkboxState} setcheckboxState={setcheckboxState} parentId={name} />
   }
 
   return (
