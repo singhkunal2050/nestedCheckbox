@@ -74,8 +74,8 @@ function CustomCheckbox({ parentId }) {
               <span className="input-title" data-bold-title={hasChildren(elem.name) ? true : false} >{elem.name}</span>
             </label>
           </div>
-          <div className="children">
-            {checkboxState[elem.name].expanded && getChildren(elem.name)}
+          <div className="children"  style={{ display: checkboxState[elem.name].expanded ? "block" : "none" }} >
+            {getChildren(elem.name)}
           </div>
         </div>
         // return <Checkbox  />
