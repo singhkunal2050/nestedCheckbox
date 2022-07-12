@@ -46,4 +46,3 @@ input[data-intermediate="true"]::before {
 
 ```
 - Can be Memoized for rendering optimization in future 
-
